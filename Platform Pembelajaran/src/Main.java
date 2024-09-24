@@ -2,13 +2,21 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) throws Exception {
         StudentHandler studentHandler = new StudentHandler();
+        PaymentSys paymentSys = new PaymentSys();
         Student std;
-        String name = "", address = "", phone = "", email = "", currentCourse = "", currentEducation = "";
-        int nim = 0, personId = 0, age = 0, indS = -1, nimS;
+        Materials mat;
+        PowerPoints pp;
+        Videos vid;
+        Bindonesia bindo = null;
+        Binggris bing = null;
+        Mathematic maths = null;
+        Lecturer lecr = null;
+        String name, address, phone, email, currentCourse, currentEducation;
+        int nim, personId, age, indS, nimS, swiCont = 0;
         Scanner sc = new Scanner(System.in);
-        int swi1 = -1, swi2 = -1, swi3 = -1, swi4 = -1, swi5 = -1;
-        String pass = "12345", username = "admin", logAtt = "", logAtt1 = "";
-        boolean men1 = true, men2 = true, men3 = true, men4 = true, men5 = true;
+        int swi1, swi2, swi3, swi4, swi5;
+        String pass = "12345", username = "admin", logAtt, logAtt1, pass1 = "mao", username1 ="cato";
+        boolean men1 = true, men2, men3, men4, men5;
 
 
         while (men1) {
@@ -17,6 +25,7 @@ public class Main {
             switch (swi1) {
                 case 1:
                     System.out.println("Enter your NIM");
+                    nim = sc.nextInt();
                     nimS = studentHandler.SeqSearch(nim);
                     if (nim ==  nimS) {
                         System.out.println("Welcome to our learning platform!");
@@ -33,9 +42,45 @@ public class Main {
                                     System.out.println(std.getCurrentCourse());
                                     break;
                                 case 2:
-                                    System.out.println("What material would you like to see: ");
+                                    System.out.println("What material would you like to see: \n1. Bahasa Indonesia \n2. Bahasa Ingriss \n3. Matematika");
+                                    int optMat = sc.nextInt();
+                                    switch (optMat) {
+                                        case 1:
+                                            System.out.println(bindo.mat);
+                                            System.out.println(bindo.pp);
+                                            System.out.println(bindo.vid);
+                                            break;
+                                        case 2:
+                                            System.out.println(bing.mat);
+                                            System.out.println(bing.pp);
+                                            System.out.println(bing.vid);
+                                        case 3:
+                                            System.out.println(maths.mat);
+                                            System.out.println(maths.pp);
+                                            System.out.println(maths.vid);
+                                            break;
+                                    }
                                     break;
                                 case 3:
+                                    String selectPay = "";
+                                    System.out.println("Payment type ?");
+                                    selectPay = switch (sc.nextInt()) {
+                                        case 1 -> "Cash";
+                                        case 2 -> "Credit";
+                                        case 3 -> "Debit";
+                                        default -> selectPay;
+                                    };
+                                    System.out.println("Pay accordingly: ");
+                                    double pay = sc.nextInt();
+                                    System.out.println("Enter the current date");
+                                    String date = sc.nextLine();
+                                    sc.next();
+                                    paymentSys.setPaymentDate(date);
+                                    paymentSys.setPaymentType(selectPay);
+                                    paymentSys.calculatePayment(pay);
+                                    paymentSys.print();
+                                    break;
+                                case 4:
                                     men5 = false;
                                     break;
                             }
@@ -49,7 +94,7 @@ public class Main {
                     for (int i = 0; i <= 3; i++) {
                         logAtt = sc.next();
                         logAtt1 = sc.next();
-                        if (username.equals(logAtt) && pass.equals(logAtt1)) {
+                        if (username1.equals(logAtt) && pass1.equals(logAtt1)) {
                             men2 = true;
                             while (men2) {
                                 System.out.println("Welcome to our learning platform!");
@@ -57,27 +102,86 @@ public class Main {
                                 swi2 = sc.nextInt();
                                 switch (swi2) {
                                     case 1:
-                                        System.out.println("Select on what course you would like add \n1.Contents \n2. Materials \n3.Video " );
+                                        System.out.println("Select on what course you would like add \n1.Bahasa Indonesia \n2. Bahasa Ingriss \n3.Matematika " );
                                         int swiC = sc.nextInt();
                                         switch (swiC) {
-                                            case 1:
-                                                String title = sc.next();
-                                                String content = sc.next();
-                                                int pageCount = sc.nextInt();
-                                                Materials mat = new Materials(title, content, pageCount);
-                                                break;
+                                            case 1: 
+                                              System.out.println("What contents would you like to add ? \n1. Materials \n2.Power point \n3. Video");
+                                              swiCont = sc.nextInt();
+                                                switch (swiCont) {
+                                                    case 1:
+                                                        String title = sc.next();
+                                                        String content = sc.next();
+                                                        int pageCount = sc.nextInt();
+                                                        mat = new Materials(title, content, pageCount);
+                                                        bindo.mat = mat;
+                                                        break;
+                                                    case 2:
+                                                        String title1 = sc.next();
+                                                        String content1 = sc.next();
+                                                        int slideCount = sc.nextInt();
+                                                        pp = new PowerPoints(title1, content1, slideCount);
+                                                        bindo.pp = pp;
+                                                        break;
+                                                    case 3:
+                                                        String title2 = sc.next();
+                                                        String content2 = sc.next();
+                                                        int duration = sc.nextInt();
+                                                        vid = new Videos(title2, content2, duration);
+                                                        bindo.vid = vid;
+                                                        break;
+                                                }
                                             case 2:
-                                                String title1 = sc.next();
-                                                String content1 = sc.next();
-                                                int slideCount = sc.nextInt();
-                                                PowerPoints pp = new PowerPoints(title1, content1, slideCount);
+                                                System.out.println("What contents would you like to add ? \n1. Materials \n2.Power point \n3. Video");
+                                                swiCont = sc.nextInt();
+                                                switch (swiCont) {
+                                                    case 1:
+                                                        String title = sc.next();
+                                                        String content = sc.next();
+                                                        int pageCount = sc.nextInt();
+                                                        mat = new Materials(title, content, pageCount);
+                                                        bing.mat = mat;
+                                                        break;
+                                                    case 2:
+                                                        String title1 = sc.next();
+                                                        String content1 = sc.next();
+                                                        int slideCount = sc.nextInt();
+                                                        pp = new PowerPoints(title1, content1, slideCount);
+                                                        bindo.pp = pp;
+                                                        break;
+                                                    case 3:
+                                                        String title2 = sc.next();
+                                                        String content2 = sc.next();
+                                                        int duration = sc.nextInt();
+                                                        vid = new Videos(title2, content2, duration);
+                                                        bindo.vid = vid;
+                                                        break;
+                                                }
                                                 break;
                                             case 3:
-                                                String title2 = sc.next();
-                                                String content2 = sc.next();
-                                                int duration = sc.nextInt();
-                                                Videos vd = new Videos(title2, content2, duration);
-                                                break;
+                                                switch (swiCont) {
+                                                    case 1:
+                                                        String title = sc.next();
+                                                        String content = sc.next();
+                                                        int pageCount = sc.nextInt();
+                                                        mat = new Materials(title, content, pageCount);
+                                                        maths.mat = mat;
+                                                        break;
+                                                    case 2:
+                                                        String title1 = sc.next();
+                                                        String content1 = sc.next();
+                                                        int slideCount = sc.nextInt();
+                                                        pp = new PowerPoints(title1, content1, slideCount);
+                                                        bindo.pp = pp;
+                                                        break;
+                                                    case 3:
+                                                        String title2 = sc.next();
+                                                        String content2 = sc.next();
+                                                        int duration = sc.nextInt();
+                                                        vid = new Videos(title2, content2, duration);
+                                                        bindo.vid = vid;
+                                                        break;
+                                                }
                                         }
                                         break;
                                     case 2:
@@ -89,8 +193,10 @@ public class Main {
                                 }
                             }
                         } else {
-                            System.out.println("Invalid username or password \nAttempt " + i);
-                        }
+                            System.out.print("Invalid username or password \nAttempt " );
+                            if (i < 3) {
+                                System.out.println(i+1);
+                            }                        }
                     }
                     System.out.println("Sorry, maximum attempt reached.");
                     break;
@@ -101,15 +207,15 @@ public class Main {
                         logAtt1 = sc.next();
                         if (username.equals(logAtt) && pass.equals(logAtt1)) {
                             men3 = true;
+                            System.out.println("Welcome to the admin panel. What would you like to do ? \n1. Open students panel \n2. Edit courses \n3. Edit lecturer \n4. View lecturer \n5. Exit");
                             while (men3) {
 
-                                System.out.println("Welcome to the admin panel. What would you like to do ? \n1. Open students panel \n2. Edit courses \n3. Edit lecturer \n4. Exit");
                                 swi3 = sc.nextInt();
                                 switch (swi3) {
                                     case 1:
                                         men4 = true;
+                                        studentHandler.menu();
                                         while (men4) {
-                                            studentHandler.print();
                                             swi4 = sc.nextInt();
                                             switch (swi4) {
                                                 case 1:
@@ -120,21 +226,24 @@ public class Main {
                                                     address = sc.nextLine();
                                                     sc.next();
                                                     System.out.println("Type in the phone number: ");
-                                                    phone = sc.nextLine();
+                                                    phone = sc.next();
                                                     System.out.println("Type in the email: ");
-                                                    email = sc.nextLine();
+                                                    email = sc.next();
                                                     System.out.println("Type in the age: ");
                                                     age = sc.nextInt();
                                                     System.out.println("Type in the current course");
                                                     currentCourse = sc.nextLine();
+                                                    sc.next();
                                                     System.out.println("Type in the current education");
                                                     currentEducation = sc.nextLine();
+                                                    sc.next();
                                                     System.out.println("Type in the nim: ");
                                                     nim = sc.nextInt();
                                                     System.out.println("Type in the person id: ");
                                                     personId = sc.nextInt();
                                                     std = new Student(personId, name, address, email, phone, nim, currentEducation, currentCourse,age );
                                                     studentHandler.addFirst(std);
+                                                    men4 = false;
                                                     break;
                                                 case 2:
                                                     System.out.println("Type in the name: ");
@@ -144,21 +253,24 @@ public class Main {
                                                     address = sc.nextLine();
                                                     sc.next();
                                                     System.out.println("Type in the phone number: ");
-                                                    phone = sc.nextLine();
+                                                    phone = sc.next();
                                                     System.out.println("Type in the email: ");
-                                                    email = sc.nextLine();
+                                                    email = sc.next();
                                                     System.out.println("Type in the age: ");
                                                     age = sc.nextInt();
                                                     System.out.println("Type in the current course");
                                                     currentCourse = sc.nextLine();
+                                                    sc.next();
                                                     System.out.println("Type in the current education");
                                                     currentEducation = sc.nextLine();
+                                                    sc.next();
                                                     System.out.println("Type in the nim: ");
                                                     nim = sc.nextInt();
                                                     System.out.println("Type in the person id: ");
                                                     personId = sc.nextInt();
                                                     std = new Student(personId, name, address, email, phone, nim, currentEducation, currentCourse,age );
                                                     studentHandler.addLast(std);
+                                                    men4 = false;
                                                     break;
                                                 case 3:
                                                     System.out.println("Type in the name: ");
@@ -168,51 +280,61 @@ public class Main {
                                                     address = sc.nextLine();
                                                     sc.next();
                                                     System.out.println("Type in the phone number: ");
-                                                    phone = sc.nextLine();
+                                                    phone = sc.next();
                                                     System.out.println("Type in the email: ");
-                                                    email = sc.nextLine();
+                                                    email = sc.next();
                                                     System.out.println("Type in the age: ");
                                                     age = sc.nextInt();
-                                                    System.out.println("Type in the current course");
-                                                    currentCourse = sc.nextLine();
-                                                    System.out.println("Type in the current education");
-                                                    currentEducation = sc.nextLine();
+                                                    System.out.println("Type in the profession: ");
+                                                    String profession = sc.nextLine();
+                                                    sc.next();
+                                                    System.out.println("Type in the expertise area: ");
+                                                    String expertiseArea = sc.nextLine();
+                                                    sc.next();
                                                     System.out.println("Type in the nim: ");
                                                     nim = sc.nextInt();
                                                     System.out.println("Type in the person id: ");
                                                     personId = sc.nextInt();
-                                                    std = new Student(personId, name, address, email, phone, nim, currentEducation, currentCourse,age);
+                                                    std = new Student(personId, name, address, email, phone, nim, profession, expertiseArea,age);
                                                     System.out.println("Type in the index you would like the student to be in: ");
                                                     indS = sc.nextInt();
                                                     studentHandler.add(std, indS);
+                                                    men4 = false;
                                                     break;
                                                 case 4:
                                                     studentHandler.removeFirst();
+                                                    men4 = false;
                                                     break;
                                                 case 5:
                                                     studentHandler.removeLast();
+                                                    men4 = false;
                                                     break;
                                                 case 6:
                                                     System.out.println("Type in the index on student that you wanted to remove: ");
                                                     indS = sc.nextInt();
                                                     studentHandler.remove(indS);
+                                                    men4 = false;
                                                     break;
                                                 case 7:
                                                     studentHandler.print();
+                                                    men4 = false;
                                                     break;
                                                 case 8:
                                                     System.out.println("Enter the NIM: ");
                                                     nimS = sc.nextInt();
-                                                    studentHandler.get(nim);
+                                                    studentHandler.get(nimS);
+                                                    men4 = false;
                                                     break;
                                                 case 9:
                                                     studentHandler.sortData();
+                                                    men4 = false;
                                                     break;
                                                 case 10:
                                                     men4 = false;
                                                     break;
 
                                             }
+                                            System.out.println("Welcome to the admin panel. What would you like to do ? \n1. Open students panel \n2. Edit courses \n3. Edit lecturer \n4. Exit");
                                         }
 
                                         break;
@@ -221,25 +343,49 @@ public class Main {
                                         int swiCE = sc.nextInt();
                                         switch (swiCE) {
                                             case 1:
+                                                System.out.println("Enter the title: ");
                                                 String title1 = sc.next();
+                                                System.out.println("Enter the description: ");
                                                 String desc = sc.next();
+                                                System.out.println("Enter the schedule time: ");
                                                 int leanTime = sc.nextInt();
+                                                System.out.println("Enter the duration: ");
                                                 int date = sc.nextInt();
-                                                Bindonesia bindo = new Bindonesia(title1, desc, leanTime, date);
+                                                bindo = new Bindonesia(title1, desc, leanTime, date);
+                                                System.out.println(bindo.getTitle());
+                                                System.out.println(bindo.getDescription());
+                                                System.out.println(bindo.gettanggalBelajar());
+                                                System.out.println(bindo.getjamBelajar());
                                                 break;
                                             case 2:
+                                                System.out.println("Enter the title: ");
                                                 String title2 = sc.next();
+                                                System.out.println("Enter the description: ");
                                                 String desc2 = sc.next();
+                                                System.out.println("Enter the schedule time: ");
                                                 int leanTime2 = sc.nextInt();
+                                                System.out.println("Enter the duration: ");
                                                 int date2 = sc.nextInt();
-                                                Binggris bing = new Binggris(title2, desc2, leanTime2, date2);
+                                                bing = new Binggris(title2, desc2, leanTime2, date2);
+                                                System.out.println(bing.getTitle());
+                                                System.out.println(bing.getDescription());
+                                                System.out.println(bing.gettanggalBelajar());
+                                                System.out.println(bing.getjamBelajar());
                                                 break;
                                             case 3:
+                                                System.out.println("Enter the title: ");
                                                 String title3 = sc.next();
+                                                System.out.println("Enter the description: ");
                                                 String desc3 = sc.next();
+                                                System.out.println("Enter the schedule time: ");
                                                 int leanTime3 = sc.nextInt();
+                                                System.out.println("Enter the duration: ");
                                                 int date3 = sc.nextInt();
-                                                Mathematic math = new Mathematic(title3, desc3, leanTime3, date3);
+                                                maths = new Mathematic(title3, desc3, leanTime3, date3);
+                                                System.out.println(maths.getTitle());
+                                                System.out.println(maths.getDescription());
+                                                System.out.println(maths.gettanggalBelajar());
+                                                System.out.println(maths.getjamBelajar());
                                                 break;
                                         }
                                         break;
@@ -262,7 +408,7 @@ public class Main {
                                         String areaExpert = sc.next();
                                         System.out.println("Enter profession: ");
                                         String profession = sc.next();
-                                        Lecturer lecr = new Lecturer(personId, name, address, email, phone, profession, areaExpert, age);
+                                        lecr = new Lecturer(personId, name, address, email, phone, profession, areaExpert, age);
                                         break;
                                     case 4:
                                         men3 = false;
@@ -270,12 +416,17 @@ public class Main {
                                 }
                             }
                         } else {
-                            System.out.println("Invalid username or password \nAttempt " + i);
+                            System.out.print("Invalid username or password \nAttempt " );
+                            if (i < 3) {
+                                System.out.println(i+1);
+                            }
                         }
                     }
                     System.out.println("Sorry, maximum attempt reached.");
                     break;
                 case 4:
+                    lecr.printDetails();
+                case 5:
                     men1 = false;
                     break;
             }

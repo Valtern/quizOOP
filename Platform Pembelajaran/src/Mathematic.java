@@ -1,5 +1,9 @@
-public class Mathematic extends Course { 
-public Mathematic(String title, String description, int jamMengajar, int tanggalBelajar) {
+public class Mathematic extends Course {
+    Materials mat;
+    PowerPoints pp;
+    Videos vid;
+
+    public Mathematic(String title, String description, int jamMengajar, int tanggalBelajar) {
         super(title, description, jamMengajar, tanggalBelajar);
     }
 
@@ -8,4 +12,3 @@ public Mathematic(String title, String description, int jamMengajar, int tanggal
         super.tampilkanKursus();
     }
 }
-// Matematika mathCourse = new Matematika("Algebra Dasar", "Belajar tentang persamaan dan fungsi.", 3.00, 24112004);

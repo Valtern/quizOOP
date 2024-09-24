@@ -1,5 +1,9 @@
 public class Course {
 
+    Materials mat;
+    PowerPoints pp;
+    Videos vid;
+
     private String title;
     private String description;
     private int jamBelajar;
