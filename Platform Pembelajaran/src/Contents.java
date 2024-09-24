@@ -94,7 +94,7 @@ class Materials extends Contents {
         this.pageCount = pageCount;
     }
 
-    // Getter for pageCount
+    // Getter for pageCount .
     public int getPageCount() {
         return pageCount;
     }
