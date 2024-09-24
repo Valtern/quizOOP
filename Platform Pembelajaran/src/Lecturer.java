@@ -2,8 +2,8 @@ public class Lecturer extends Person {
     private String profession;
     private String expertiseArea;
 
-    public Lecturer(int personId, String name, String address, String email, String phoneNumber, String profession, String expertiseArea) {
-        super(personId, name, address, email, phoneNumber);  // Calls the Person constructor
+    Lecturer(int personId, String name, String address, String email, String phoneNumber, String profession, String expertiseArea, int age) {
+        super(personId, name, address, email, phoneNumber, age);  // Calls the Person constructor
         this.profession = profession;
         this.expertiseArea = expertiseArea;
     }
