@@ -3,6 +3,10 @@ public class Course {
     private String kursusMaketing;
     private String kursusSeller;
 
+    Course () {
+
+    }
+
     Course (String kursusSoftware, String kursusMarketing, String kursusSeller ){
         this.kursusSoftware = kursusSoftware;
         this.kursusMaketing = kursusMarketing;
