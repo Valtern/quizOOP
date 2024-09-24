@@ -2,9 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CourseHandler {
-    //set material 
-    //set student 
-    //set teacher
+
     private List<Course> coursesList;
     private List<Person> personList;
 
