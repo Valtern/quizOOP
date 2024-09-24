@@ -2,8 +2,8 @@ public class Assistant extends Person {
     private String adminId; 
     private int workHours;  // weekly work hours
 
-     Assistant(int personId, String name, String address, String email, String phoneNumber, String adminId, int workHours) {
-        super(personId, name, address, email, phoneNumber); 
+     Assistant(int personId, String name, String address, String email, String phoneNumber, String adminId, int workHours, int age) {
+        super(personId, name, address, email, phoneNumber, age);
         this.adminId = adminId;
         this.workHours = workHours;
     }
