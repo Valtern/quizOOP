@@ -1,38 +1,37 @@
 public class Course {
-    private String kursusSoftware;
-    private String kursusMaketing;
-    private String kursusSeller;
 
-    Course () {
+    private String title;
+    private String description;
+    private int jamBelajar;
+    private int tanggalBelajar;
 
+    public Course(String title, String description, int jamBelajar, int tanggalBelajar) {
+        this.title = title;
+        this.description = description;
+        this.jamBelajar = jamBelajar;
+        this.tanggalBelajar =tanggalBelajar;
     }
 
-    Course (String kursusSoftware, String kursusMarketing, String kursusSeller ){
-        this.kursusSoftware = kursusSoftware;
-        this.kursusMaketing = kursusMarketing;
-        this.kursusSeller = kursusSeller;
+    public String getTitle() {
+        return title;
     }
 
-    public void setkursusSoftware (String kursusSoftware){
-        this.kursusSoftware = kursusSoftware;
+    public String getDescription() {
+        return description;
     }
 
-    public void setkursusMarketing (String kursusMarketing){
-        this.kursusMaketing = kursusMarketing;
+    public int getjamBelajar(){
+        return jamBelajar;
     }
 
-    public void setkursusSeller (String kursusSeller){
-        this.kursusSeller = kursusSeller;
+    public int tanggalBelajar(){
+        return tanggalBelajar;
     }
 
-    public void print (){
-        System.out.println("Kursus Software  : " + kursusSoftware);
-        System.out.println("Kursus Marketing : " + kursusMaketing);
-        System.out.println("Kursus Seller  : " + kursusSeller);
+    public void tampilkanKursus() {
+        System.out.println("Kursus: " + title);
+        System.out.println("Deskripsi: " + description);
+        System.out.println("Jam Mengajar: " + jamBelajar + " jam");
+        System.out.println("Tanggal Belajar: " + tanggalBelajar);
     }
-
-
-
-
-
 }

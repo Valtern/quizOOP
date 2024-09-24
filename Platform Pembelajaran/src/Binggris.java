@@ -1,5 +1,5 @@
-public class Bindonesia extends Course {
-    public Bindonesia(String title, String description, int jamMengajar, int tanggalBelajar) {
+public class Binggris extends Course {
+    public Binggris (String title, String description, int jamMengajar, int tanggalBelajar) {
         super(title, description, jamMengajar, tanggalBelajar);
     }
 

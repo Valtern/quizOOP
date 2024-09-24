@@ -1,14 +1,11 @@
-public class Mathematic {
-    
-    private String lokasiBelajar;
-    private int tanggalMengajar;
-    private int jamMengajar;
-
-    Mathematic(String lokasiBelajar,  int tanggalMengajar, int jamMengajar){
-        this.lokasiBelajar = lokasiBelajar;
-        this.tanggalMengajar = tanggalMengajar;
-        this.jamMengajar = jamMengajar;
+public class Mathematic extends Course { 
+public Mathematic(String title, String description, int jamMengajar, int tanggalBelajar) {
+        super(title, description, jamMengajar, tanggalBelajar);
     }
 
-
+    public void tampilkanKursus() {
+        System.out.println("Kursus Matematika: " + getTitle());
+        super.tampilkanKursus();
+    }
 }
+// Matematika mathCourse = new Matematika("Algebra Dasar", "Belajar tentang persamaan dan fungsi.", 3.00, 24112004);
