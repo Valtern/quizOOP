@@ -34,8 +34,10 @@ public class PaymentSys {
         this.tanggalPembayaran  = tanggalPembayaran;
     }
 
-    public void calculatePayment () {
 
+
+    public double calculatePayment () {
+        return totalPembayaran * 1.10;
     }
 
 
@@ -47,6 +49,8 @@ public class PaymentSys {
         System.out.println("Kode pembayaran: " + this.kodePembayaran);
         System.out.println("Jenis pembayaran: " + this.jenisPembayaran);
         System.out.println("Total Pembayaran: " + this.totalPembayaran);
+        System.out.println("Total Pembayaran setelah pajak");
+        System.out.println(calculatePayment());
         System.out.println("Tanggal Pembayaran: " + this.tanggalPembayaran);
     }
 }

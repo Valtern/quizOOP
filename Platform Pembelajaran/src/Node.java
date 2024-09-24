@@ -1,8 +1,8 @@
 public class Node {
     Node next, prev;
-    Object data;
+    Student data;
 
-    Node (Node prev,Object data ,Node next) {
+    Node (Node prev, Student data ,Node next) {
         this.prev = prev;
         this.data = data;
         this.next = next;

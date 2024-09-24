@@ -1,16 +1,18 @@
 public class Person {
     private int personId;
+    private int age;
     private String name;
     private String address;
     private String email;
     private String phoneNumber;
     
-    public Person(int personId, String name, String address, String email, String phoneNumber) {
+    public Person(int personId, String name, String address, String email, String phoneNumber, int age) {
         this.personId = personId;
         this.name = name;
         this.address = address;
         this.email = email;
         this.phoneNumber = phoneNumber;
+        this.age = age;
     }
 
     // Getters and Setters
@@ -20,6 +22,13 @@ public class Person {
 
     public void setPersonId(int personId) {
         this.personId = personId;
+    }
+
+    public int getAge() {
+        return age;
+    }
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public String getName() {
@@ -60,13 +69,5 @@ public class Person {
         System.out.println("Address: " + address);
         System.out.println("Email: " + email);
         System.out.println("Phone Number: " + phoneNumber);
-
-        if (nim != null) {
-            System.out.println("NIM: " + nim);  // For students
-        }
-        
-        if (profession != null) {
-            System.out.println("Profession: " + profession);  // For lecturers/assistants
-        }
     }
 }
