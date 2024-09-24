@@ -138,6 +138,7 @@ public class StudentHandler {
         return  tmp.data;
     }
 
+
     public void print() {
         if (!isEmpty()) {
             Node tmp = head;
@@ -150,16 +151,20 @@ public class StudentHandler {
         }
     }
 
-    public void SeqSearch (int search) {
+    public int SeqSearch (int nim) {
         Node tmp = head;
         int index = 0;
         while (tmp.next != null) {
             tmp = tmp.next;
             index++;
-            if (tmp.data.getNim() == search) {
+            if (tmp.data.getNim() == nim) {
                 System.out.println("Found students at index-"+ index + " with the data of \n" + tmp.data.getNim()+ " \n" + tmp.data.getName() + " \n");
+                return tmp.data.getNim();
+            } else {
+                System.out.println("Student not found !");
             }
         }
+        return -1;
     }
 
     public void sortData () {

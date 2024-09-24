@@ -6,9 +6,9 @@ public class Main {
         String name = "", address = "", phone = "", email = "", currentCourse = "", currentEducation = "";
         int nim = 0, personId = 0, age = 0, indS = -1, nimS;
         Scanner sc = new Scanner(System.in);
-        int swi1 = -1, swi2 = -1, swi3 = -1, swi4 = -1;
+        int swi1 = -1, swi2 = -1, swi3 = -1, swi4 = -1, swi5 = -1;
         String pass = "12345", username = "admin", logAtt = "", logAtt1 = "";
-        boolean men1 = true, men2 = true, men3 = true, men4 = true;
+        boolean men1 = true, men2 = true, men3 = true, men4 = true, men5 = true;
 
 
         while (men1) {
@@ -16,8 +16,33 @@ public class Main {
             swi1 = sc.nextInt();
             switch (swi1) {
                 case 1:
-                    System.out.println("Welcome to our learning platform!");
-                    System.out.println("What would you like to do ?");
+                    System.out.println("Enter your NIM");
+                    nimS = studentHandler.SeqSearch(nim);
+                    if (nim ==  nimS) {
+                        System.out.println("Welcome to our learning platform!");
+                        System.out.println("What would you like to do ?");
+                        System.out.println("1. View course \n2. View materials from said course \n3. Pay the price... \n4. Exit");
+                        men5 = true;
+                        while (men5) {
+                            swi5 = sc.nextInt();
+                            switch (swi5) {
+                                case 1:
+                                    System.out.println("Enter your index (attendances list): ");
+                                    int indStudent = sc.nextInt();
+                                    std = studentHandler.get(indStudent);
+                                    System.out.println(std.getCurrentCourse());
+                                    break;
+                                case 2:
+                                    System.out.println("What material would you like to see: ");
+                                    break;
+                                case 3:
+                                    men5 = false;
+                                    break;
+                            }
+                        }
+                    } else {
+                        System.out.println("Invalid NIM!");
+                    }
                     break;
                 case 2:
                     System.out.println("Enter your username and password");
