@@ -1,6 +1,7 @@
 import java.util.*;
 public class Main {
     public static void main(String[] args) {
+        StudentHandler studentHandler = new StudentHandler();
         Scanner sc = new Scanner(System.in);
         int swi1 = -1, swi2 = -1, swi3 = -1;
         String pass = "12345", username = "admin", logAtt = "", logAtt1 = "";
