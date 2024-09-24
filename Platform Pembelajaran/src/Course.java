@@ -24,7 +24,7 @@ public class Course {
         return jamBelajar;
     }
 
-    public int tanggalBelajar(){
+    public int gettanggalBelajar(){
         return tanggalBelajar;
     }
 
