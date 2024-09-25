@@ -16,6 +16,10 @@ public class Course {
         this.tanggalBelajar =tanggalBelajar;
     }
 
+    Course () {
+
+    }
+
     public String getTitle() {
         return title;
     }

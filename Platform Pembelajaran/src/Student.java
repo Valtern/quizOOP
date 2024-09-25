@@ -2,8 +2,11 @@ public class Student extends Person {
     private int nim;
     private String currentEducation;
     private String currentCourse;
+    Bindonesia bindo;
+    Binggris bing;
+    Mathematic maths;
 
-    public Student(int personId, String name, String address, String email, String phoneNumber, int nim, String currentEducation, String currentCourse, int age) {
+    public Student(int personId, String name, String address, String email, String phoneNumber, int nim, String currentEducation, String currentCourse, int age, Course crs) {
         super(personId, name, address, email, phoneNumber, age);  // Calls the Person constructor
         this.nim = nim;
         this.currentEducation = currentEducation;

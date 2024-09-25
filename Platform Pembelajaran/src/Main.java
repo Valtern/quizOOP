@@ -12,7 +12,7 @@ public class Main {
         Mathematic maths = null;
         Lecturer lecr = null;
         String name, address, phone, email, currentCourse, currentEducation;
-        int nim, personId, age, indS, nimS, swiCont = 0;
+        int nim, personId, age, indS, nimS, swiCont = 0, optClass;
         Scanner sc = new Scanner(System.in);
         int swi1, swi2, swi3, swi4, swi5;
         String pass = "12345", username = "admin", logAtt, logAtt1, pass1 = "mao", username1 ="cato";
@@ -241,8 +241,22 @@ public class Main {
                                                     nim = sc.nextInt();
                                                     System.out.println("Type in the person id: ");
                                                     personId = sc.nextInt();
-                                                    std = new Student(personId, name, address, email, phone, nim, currentEducation, currentCourse,age );
-                                                    studentHandler.addFirst(std);
+                                                    System.out.println("What class should they be on ? \n1. Bahasa Indonesia \n2.Bahasa Ingriss \n3. Matematika");
+                                                    optClass = sc.nextInt();
+                                                    switch (optClass) {
+                                                        case 1:
+                                                            std = new Student(personId, name, address, email, phone, nim, currentEducation, currentCourse,age, bindo);
+                                                            studentHandler.addFirst(std);
+                                                            break;
+                                                        case 2:
+                                                            std = new Student(personId, name, address, email, phone, nim, currentEducation, currentCourse,age, bing);
+                                                            studentHandler.addFirst(std);
+                                                            break;
+                                                        case 3:
+                                                            std = new Student(personId, name, address, email, phone, nim, currentEducation, currentCourse,age, maths);
+                                                            studentHandler.addFirst(std);
+                                                            break;
+                                                    }
                                                     men4 = false;
                                                     break;
                                                 case 2:
@@ -268,8 +282,22 @@ public class Main {
                                                     nim = sc.nextInt();
                                                     System.out.println("Type in the person id: ");
                                                     personId = sc.nextInt();
-                                                    std = new Student(personId, name, address, email, phone, nim, currentEducation, currentCourse,age );
-                                                    studentHandler.addLast(std);
+                                                    System.out.println("What class should they be on ? \n1. Bahasa Indonesia \n2.Bahasa Ingriss \n3. Matematika");
+                                                    optClass = sc.nextInt();
+                                                    switch (optClass) {
+                                                        case 1:
+                                                            std = new Student(personId, name, address, email, phone, nim, currentEducation, currentCourse,age, bindo);
+                                                            studentHandler.addFirst(std);
+                                                            break;
+                                                        case 2:
+                                                            std = new Student(personId, name, address, email, phone, nim, currentEducation, currentCourse,age, bing);
+                                                            studentHandler.addFirst(std);
+                                                            break;
+                                                        case 3:
+                                                            std = new Student(personId, name, address, email, phone, nim, currentEducation, currentCourse,age, maths);
+                                                            studentHandler.addFirst(std);
+                                                            break;
+                                                    }
                                                     men4 = false;
                                                     break;
                                                 case 3:
@@ -285,20 +313,41 @@ public class Main {
                                                     email = sc.next();
                                                     System.out.println("Type in the age: ");
                                                     age = sc.nextInt();
-                                                    System.out.println("Type in the profession: ");
-                                                    String profession = sc.nextLine();
+                                                    System.out.println("Type in the current course: ");
+                                                    currentCourse = sc.nextLine();
                                                     sc.next();
-                                                    System.out.println("Type in the expertise area: ");
-                                                    String expertiseArea = sc.nextLine();
+                                                    System.out.println("Type in the current education: ");
+                                                    currentEducation = sc.nextLine();
                                                     sc.next();
                                                     System.out.println("Type in the nim: ");
                                                     nim = sc.nextInt();
                                                     System.out.println("Type in the person id: ");
                                                     personId = sc.nextInt();
-                                                    std = new Student(personId, name, address, email, phone, nim, profession, expertiseArea,age);
-                                                    System.out.println("Type in the index you would like the student to be in: ");
-                                                    indS = sc.nextInt();
-                                                    studentHandler.add(std, indS);
+                                                    System.out.println("What class should they be on ? \n1. Bahasa Indonesia \n2.Bahasa Ingriss \n3. Matematika");
+                                                    optClass = sc.nextInt();
+                                                    switch (optClass) {
+                                                        case 1:
+                                                            std = new Student(personId, name, address, email, phone, nim, currentEducation, currentCourse,age, bindo);
+                                                            studentHandler.addFirst(std);
+                                                            System.out.println("Type in the index you would like the student to be in: ");
+                                                            indS = sc.nextInt();
+                                                            studentHandler.add(std, indS);
+                                                            break;
+                                                        case 2:
+                                                            std = new Student(personId, name, address, email, phone, nim, currentEducation, currentCourse,age, bing);
+                                                            studentHandler.addFirst(std);
+                                                            System.out.println("Type in the index you would like the student to be in: ");
+                                                            indS = sc.nextInt();
+                                                            studentHandler.add(std, indS);
+                                                            break;
+                                                        case 3:
+                                                            std = new Student(personId, name, address, email, phone, nim, currentEducation, currentCourse,age, maths);
+                                                            studentHandler.addFirst(std);
+                                                            System.out.println("Type in the index you would like the student to be in: ");
+                                                            indS = sc.nextInt();
+                                                            studentHandler.add(std, indS);
+                                                            break;
+                                                    }
                                                     men4 = false;
                                                     break;
                                                 case 4:

@@ -1,5 +1,6 @@
 public class StudentHandler {
     Node head, tail;
+    Course crs = new Course();
 
     StudentHandler() {
         head = tail = null;
@@ -143,7 +144,7 @@ public class StudentHandler {
         if (!isEmpty()) {
             Node tmp = head;
             while (tmp != null) {
-                System.out.println("NIM: "+ tmp.data.getNim() + " \nName: " + tmp.data.getName() + "\nAge: "+ tmp.data.getAge() +  "\nAddress: " + tmp.data.getAddress() + "\nEmail: " + tmp.data.getEmail() + "\nPhone number: " + tmp.data.getPhoneNumber() + "\nID: " + tmp.data.getPersonId() + "\nNIM: " + tmp.data.getNim() + "\nCurrent education: "+ tmp.data.getCurrentEducation() + "\nCurrent Course: " + tmp.data.getCurrentCourse());
+                System.out.println("NIM: "+ tmp.data.getNim() + " \nName: " + tmp.data.getName() + "\nAge: "+ tmp.data.getAge() +  "\nAddress: " + tmp.data.getAddress() + "\nEmail: " + tmp.data.getEmail() + "\nPhone number: " + tmp.data.getPhoneNumber() + "\nID: " + tmp.data.getPersonId() + "\nNIM: " + tmp.data.getNim() + "\nCurrent education: "+ tmp.data.getCurrentEducation() + "\nCurrent Course: " + tmp.data.getCurrentCourse() + "Current taken course: " + crs.getTitle());
                 tmp = tmp.next;
             }
         } else {
