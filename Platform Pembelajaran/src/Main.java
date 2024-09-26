@@ -3,7 +3,7 @@ public class Main {
     public static void main(String[] args) throws Exception {
         StudentHandler studentHandler = new StudentHandler();
         PaymentSys paymentSys = new PaymentSys();
-        Student std;
+        Student std = null;
         Materials mat;
         PowerPoints pp;
         Videos vid;
@@ -52,18 +52,30 @@ public class Main {
                                     int optMat = sc.nextInt();
                                     switch (optMat) {
                                         case 1:
-                                            System.out.println(bindo.mat);
-                                            System.out.println(bindo.pp);
-                                            System.out.println(bindo.vid);
+                                            if (std.getCurrentCourse().equalsIgnoreCase("Bahasa Indonesia")) {
+                                                System.out.println(bindo.mat);
+                                                System.out.println(bindo.pp);
+                                                System.out.println(bindo.vid);
+                                            } else {
+                                                System.out.println("You're not enrolled in this class !");
+                                            }
                                             break;
                                         case 2:
-                                            System.out.println(bing.mat);
-                                            System.out.println(bing.pp);
-                                            System.out.println(bing.vid);
+                                            if (std.getCurrentCourse().equalsIgnoreCase("Bahasa Ingriss")) {
+                                                System.out.println(bing.mat);
+                                                System.out.println(bing.pp);
+                                                System.out.println(bing.vid);
+                                            } else {
+                                                System.out.println("You're not enrolled in this class !");
+                                            }
                                         case 3:
-                                            System.out.println(maths.mat);
-                                            System.out.println(maths.pp);
-                                            System.out.println(maths.vid);
+                                            if (std.getCurrentCourse().equalsIgnoreCase("Matematika")) {
+                                                System.out.println(maths.mat);
+                                                System.out.println(maths.pp);
+                                                System.out.println(maths.vid);
+                                            } else {
+                                                System.out.println("You're not enrolled in this class !");
+                                            }
                                             break;
                                     }
                                     break;
