@@ -11,7 +11,7 @@ public class PaymentSys {
     }
 
     public void calculatePayment (double paymentAmount) {
-        if (paymentAmount > price*1.10) {
+        if (paymentAmount >= price*1.10) {
             print();
             if (paymentAmount-price > 0) {
                 System.out.println("Leftover amount : " + (paymentAmount-price));

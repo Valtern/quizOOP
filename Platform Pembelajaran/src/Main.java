@@ -18,7 +18,6 @@ public class Main {
         String pass = "12345", username = "admin", logAtt, logAtt1, pass1 = "mao", username1 ="cato";
         boolean men1 = true, men2, men3, men4, men5;
 
-
         while (men1) {
             System.out.println("Who are you ? \n1. Student \n2. Lecturer \n3. Assistant \n4. Exit");
             swi1 = sc.nextInt();
@@ -28,17 +27,24 @@ public class Main {
                     nim = sc.nextInt();
                     nimS = studentHandler.SeqSearch(nim);
                     if (nim == nimS) {
-                        System.out.println("Welcome to our learning platform!");
-                        System.out.println("What would you like to do ?");
-                        System.out.println("1. View course \n2. View materials from said course \n3. Pay the price... \n4. Exit");
                         men5 = true;
                         while (men5) {
+                            System.out.println("Welcome to our learning platform!");
+                            System.out.println("What would you like to do ?");
+                            System.out.println("1. View course \n2. View materials from said course \n3. Pay the price... \n4. Exit");
                             swi5 = sc.nextInt();
                             switch (swi5) {
                                 case 1:
                                     System.out.println("Enter your index (attendances list): ");
                                     int indStudent = sc.nextInt();
-                                    std = studentHandler.get(indStudent);
+                                    std = studentHandler.get(indStudent-1);
+                                    if (std.getCurrentCourse().equalsIgnoreCase("Bahasa Indonesia")) {
+                                        bindo.tampilkanKursus();
+                                    } else if (std.getCurrentCourse().equalsIgnoreCase("Bahasa Ingriss")) {
+                                        bing.tampilkanKursus();
+                                    } else if (std.getCurrentCourse().equalsIgnoreCase("Matematika")) {
+                                        maths.tampilkanKursus();
+                                    }
                                     System.out.println(std.getCurrentCourse());
                                     break;
                                 case 2:
@@ -62,13 +68,13 @@ public class Main {
                                     }
                                     break;
                                 case 3:
-                                    String selectPay = "";
+                                    String selectPay;
                                     System.out.println("Payment type ? \n1. Cash \n2. Credit \n3. Debit");
                                     selectPay = switch (sc.nextInt()) {
                                         case 1 -> "Cash";
                                         case 2 -> "Credit";
                                         case 3 -> "Debit";
-                                        default -> selectPay;
+                                        default -> throw new IllegalStateException("Unexpected value: " + sc.nextInt());
                                     };
                                     System.out.println("Pay accordingly: ");
                                     double pay = sc.nextInt();
@@ -102,7 +108,7 @@ public class Main {
                                 swi2 = sc.nextInt();
                                 switch (swi2) {
                                     case 1:
-                                        System.out.println("Select on what course you would like add \n1.Bahasa Indonesia \n2. Bahasa Ingriss \n3.Matematika " );
+                                        System.out.println("Select on what course you would like add \n1.Bahasa Indonesia \n2.Bahasa Ingriss \n3.Matematika " );
                                         int swiC = sc.nextInt();
                                         switch (swiC) {
                                             case 1: 
@@ -110,22 +116,31 @@ public class Main {
                                               swiCont = sc.nextInt();
                                                 switch (swiCont) {
                                                     case 1:
+                                                        System.out.println("Enter the title: ");
                                                         String title = sc.next();
+                                                        System.out.println("Enter the description: ");
                                                         String content = sc.next();
+                                                        System.out.println("Enter the page count: ");
                                                         int pageCount = sc.nextInt();
                                                         mat = new Materials(title, content, pageCount);
                                                         bindo.mat = mat;
                                                         break;
                                                     case 2:
+                                                        System.out.println("Enter the title: ");
                                                         String title1 = sc.next();
+                                                        System.out.println("Enter the description: ");
                                                         String content1 = sc.next();
+                                                        System.out.println("Enter the page count: ");
                                                         int slideCount = sc.nextInt();
                                                         pp = new PowerPoints(title1, content1, slideCount);
                                                         bindo.pp = pp;
                                                         break;
                                                     case 3:
+                                                        System.out.println("Enter the title: ");
                                                         String title2 = sc.next();
+                                                        System.out.println("Enter the description: ");
                                                         String content2 = sc.next();
+                                                        System.out.println("Enter the duration: ");
                                                         int duration = sc.nextInt();
                                                         vid = new Videos(title2, content2, duration);
                                                         bindo.vid = vid;
@@ -324,7 +339,7 @@ public class Main {
 
                                         break;
                                     case 2:
-                                        System.out.println("Select what courses you would like to edit \n1. Bahasa Indonesia \n2. Bahasa Ingriss \n3. Matematika");
+                                        System.out.println("Select what courses you would like to edit/add \n1. Bahasa Indonesia \n2. Bahasa Ingriss \n3. Matematika");
                                         int swiCE = sc.nextInt();
                                         switch (swiCE) {
                                             case 1:
@@ -376,11 +391,9 @@ public class Main {
                                         break;
                                     case 3:
                                         System.out.println("Type in the name: ");
-                                        name = sc.nextLine();
-                                        sc.next();
+                                        name = sc.next();
                                         System.out.println("Type in the address: ");
-                                        address = sc.nextLine();
-                                        sc.next();
+                                        address = sc.next();
                                         System.out.println("Type in the phone number: ");
                                         phone = sc.next();
                                         System.out.println("Type in the email: ");
@@ -401,6 +414,8 @@ public class Main {
                                     case 5:
                                         men3 = false;
                                         break;
+                                    default:
+                                        throw new IllegalStateException("Unexpected value: " + swi3);
                                 }
                             }
                         } else {
