@@ -12,7 +12,7 @@ public class Main {
         Mathematic maths = null;
         Lecturer lecr = null;
         String name, address, phone, email, currentCourse, currentEducation;
-        int nim, personId, age, indS, nimS, swiCont = 0, optClass;
+        int nim, personId, age, indS, nimS, swiCont = 0;
         Scanner sc = new Scanner(System.in);
         int swi1, swi2, swi3, swi4, swi5;
         String pass = "12345", username = "admin", logAtt, logAtt1, pass1 = "mao", username1 ="cato";
