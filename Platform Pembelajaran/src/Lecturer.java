@@ -3,7 +3,7 @@ public class Lecturer extends Person {
     private String expertiseArea;
 
     Lecturer(int personId, String name, String address, String email, String phoneNumber, String profession, String expertiseArea, int age) {
-        super(personId, name, address, email, phoneNumber, age);  // Calls the Person constructor
+        super(personId, name, address, email, phoneNumber, age);
         this.profession = profession;
         this.expertiseArea = expertiseArea;
     }

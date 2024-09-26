@@ -1,6 +1,5 @@
 public class StudentHandler {
     Node head, tail;
-    Course crs = new Course();
 
     StudentHandler() {
         head = tail = null;
@@ -140,11 +139,13 @@ public class StudentHandler {
     }
 
 
+
+
     public void print() {
         if (!isEmpty()) {
             Node tmp = head;
             while (tmp != null) {
-                System.out.println("NIM: "+ tmp.data.getNim() + " \nName: " + tmp.data.getName() + "\nAge: "+ tmp.data.getAge() +  "\nAddress: " + tmp.data.getAddress() + "\nEmail: " + tmp.data.getEmail() + "\nPhone number: " + tmp.data.getPhoneNumber() + "\nID: " + tmp.data.getPersonId() + "\nNIM: " + tmp.data.getNim() + "\nCurrent education: "+ tmp.data.getCurrentEducation() + "\nCurrent Course: " + tmp.data.getCurrentCourse() + "Current taken course: " + crs.getTitle());
+                System.out.println("NIM: "+ tmp.data.getNim() + " \nName: " + tmp.data.getName() + "\nAge: "+ tmp.data.getAge() +  "\nAddress: " + tmp.data.getAddress() + "\nEmail: " + tmp.data.getEmail() + "\nPhone number: " + tmp.data.getPhoneNumber() + "\nID: " + tmp.data.getPersonId() + "\nNIM: " + tmp.data.getNim() + "\nCurrent education: "+ tmp.data.getCurrentEducation() + "\nCurrent Course: " + tmp.data.getCurrentCourse());
                 tmp = tmp.next;
             }
         } else {
@@ -165,7 +166,7 @@ public class StudentHandler {
                 System.out.println("Student not found !");
             }
         }
-        return -1;
+        return tmp.data.getNim();
     }
 
     public void sortData () {
