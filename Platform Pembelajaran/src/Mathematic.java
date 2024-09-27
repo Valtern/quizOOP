@@ -3,7 +3,7 @@ public class Mathematic extends Course {
     PowerPoints pp;
     Videos vid;
 
-    public Mathematic(String title, String description, int jamMengajar, int tanggalBelajar) {
+    public Mathematic(String title, String description, String jamMengajar, int tanggalBelajar) {
         super(title, description, jamMengajar, tanggalBelajar);
     }
 

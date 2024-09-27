@@ -53,26 +53,20 @@ public class Main {
                                     switch (optMat) {
                                         case 1:
                                             if (std.getCurrentCourse().equalsIgnoreCase("Bahasa Indonesia")) {
-                                                System.out.println(bindo.mat);
-                                                System.out.println(bindo.pp);
-                                                System.out.println(bindo.vid);
+                                                bindo.mat.displayInfo();
                                             } else {
                                                 System.out.println("You're not enrolled in this class !");
                                             }
                                             break;
                                         case 2:
                                             if (std.getCurrentCourse().equalsIgnoreCase("Bahasa Ingriss")) {
-                                                System.out.println(bing.mat);
-                                                System.out.println(bing.pp);
-                                                System.out.println(bing.vid);
+                                                bing.mat.displayInfo();
                                             } else {
                                                 System.out.println("You're not enrolled in this class !");
                                             }
                                         case 3:
                                             if (std.getCurrentCourse().equalsIgnoreCase("Matematika")) {
-                                                System.out.println(maths.mat);
-                                                System.out.println(maths.pp);
-                                                System.out.println(maths.vid);
+                                                maths.mat.displayInfo();
                                             } else {
                                                 System.out.println("You're not enrolled in this class !");
                                             }
@@ -113,6 +107,7 @@ public class Main {
                         logAtt = sc.next();
                         logAtt1 = sc.next();
                         if (username1.equals(logAtt) && pass1.equals(logAtt1)) {
+                            i = 4;
                             men2 = true;
                             while (men2) {
                                 System.out.println("Welcome to our learning platform!");
@@ -158,6 +153,7 @@ public class Main {
                                                         bindo.vid = vid;
                                                         break;
                                                 }
+                                            break;
                                             case 2:
                                                 System.out.println("What contents would you like to add ? \n1. Materials \n2.Power point \n3. Video");
                                                 swiCont = sc.nextInt();
@@ -209,6 +205,7 @@ public class Main {
                                                         bindo.vid = vid;
                                                         break;
                                                 }
+                                                break;
                                         }
                                         break;
                                     case 2:
@@ -220,10 +217,11 @@ public class Main {
                                 }
                             }
                         } else {
-                            System.out.print("Invalid username or password \nAttempt " );
+                            System.out.println("Invalid username or password" );
                             if (i < 3) {
-                                System.out.println(i+1);
-                            }                        }
+                                System.out.println("Attempt: "+(i+1));
+                            }
+                        }
                     }
                     System.out.println("Sorry, maximum attempt reached.");
                     break;
@@ -257,7 +255,8 @@ public class Main {
                                                     System.out.println("Type in the age: ");
                                                     age = sc.nextInt();
                                                     System.out.println("Type in the current course: ");
-                                                    currentCourse = sc.next();
+                                                    sc.nextLine();
+                                                    currentCourse = sc.nextLine();
                                                     System.out.println("Type in the current education: ");
                                                     currentEducation = sc.next();
                                                     System.out.println("Type in the nim: ");
@@ -280,7 +279,8 @@ public class Main {
                                                     System.out.println("Type in the age: ");
                                                     age = sc.nextInt();
                                                     System.out.println("Type in the current course: ");
-                                                    currentCourse = sc.next();
+                                                    sc.nextLine();
+                                                    currentCourse = sc.nextLine();
                                                     System.out.println("Type in the current education: ");
                                                     currentEducation = sc.next();
                                                     System.out.println("Type in the nim: ");
@@ -303,7 +303,8 @@ public class Main {
                                                     System.out.println("Type in the age: ");
                                                     age = sc.nextInt();
                                                     System.out.println("Type in the current course: ");
-                                                    currentCourse = sc.next();
+                                                    sc.nextLine();
+                                                    currentCourse = sc.nextLine();
                                                     System.out.println("Type in the current education: ");
                                                     currentEducation = sc.next();
                                                     System.out.println("Type in the nim: ");
@@ -356,11 +357,12 @@ public class Main {
                                         switch (swiCE) {
                                             case 1:
                                                 System.out.println("Enter the title: ");
-                                                String title1 = sc.next();
+                                                sc.nextLine();
+                                                String title1 = sc.nextLine();
                                                 System.out.println("Enter the description: ");
                                                 String desc = sc.next();
                                                 System.out.println("Enter the schedule time: ");
-                                                int leanTime = sc.nextInt();
+                                                String leanTime = sc.next();
                                                 System.out.println("Enter the duration: ");
                                                 int date = sc.nextInt();
                                                 bindo = new Bindonesia(title1, desc, leanTime, date);
@@ -371,11 +373,12 @@ public class Main {
                                                 break;
                                             case 2:
                                                 System.out.println("Enter the title: ");
-                                                String title2 = sc.next();
+                                                sc.nextLine();
+                                                String title2 = sc.nextLine();
                                                 System.out.println("Enter the description: ");
                                                 String desc2 = sc.next();
                                                 System.out.println("Enter the schedule time: ");
-                                                int leanTime2 = sc.nextInt();
+                                                String leanTime2 = sc.next();
                                                 System.out.println("Enter the duration: ");
                                                 int date2 = sc.nextInt();
                                                 bing = new Binggris(title2, desc2, leanTime2, date2);
@@ -386,11 +389,12 @@ public class Main {
                                                 break;
                                             case 3:
                                                 System.out.println("Enter the title: ");
-                                                String title3 = sc.next();
+                                                sc.nextLine();
+                                                String title3 = sc.nextLine();
                                                 System.out.println("Enter the description: ");
                                                 String desc3 = sc.next();
                                                 System.out.println("Enter the schedule time: ");
-                                                int leanTime3 = sc.nextInt();
+                                                String leanTime3 = sc.next();
                                                 System.out.println("Enter the duration: ");
                                                 int date3 = sc.nextInt();
                                                 maths = new Mathematic(title3, desc3, leanTime3, date3);
@@ -431,9 +435,9 @@ public class Main {
                                 }
                             }
                         } else {
-                            System.out.print("Invalid username or password \nAttempt " );
+                            System.out.println("Invalid username or password " );
                             if (i < 3) {
-                                System.out.println(i+1);
+                                System.out.println("Attempt :" + (i+1));
                             }
                         }
                     }
@@ -445,6 +449,8 @@ public class Main {
             }
 
         }
+
+
 
     }
 }

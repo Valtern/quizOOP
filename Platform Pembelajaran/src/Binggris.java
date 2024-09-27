@@ -3,12 +3,12 @@ public class Binggris extends Course {
     PowerPoints pp;
     Videos vid;
 
-    public Binggris (String title, String description, int jamMengajar, int tanggalBelajar) {
+    public Binggris (String title, String description, String jamMengajar, int tanggalBelajar) {
         super(title, description, jamMengajar, tanggalBelajar);
     }
 
     public void tampilkanKursus() {
-        System.out.println("Kursus Matematika: " + getTitle());
+        System.out.println("Bahasa ingriss course: " + getTitle());
         super.tampilkanKursus();
     }
 

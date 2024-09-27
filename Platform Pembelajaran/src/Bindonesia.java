@@ -3,12 +3,12 @@ public class Bindonesia extends Course {
     PowerPoints pp;
     Videos vid;
 
-    public Bindonesia(String title, String description, int jamMengajar, int tanggalBelajar) {
+    public Bindonesia(String title, String description, String jamMengajar, int tanggalBelajar) {
         super(title, description, jamMengajar, tanggalBelajar);
     }
 
     public void tampilkanKursus() {
-        System.out.println("Kursus Matematika: " + getTitle());
+        System.out.println("Bahasan indonesia course: " + getTitle());
         super.tampilkanKursus();
     }
 

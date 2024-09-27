@@ -6,10 +6,10 @@ public class Course {
 
     private String title;
     private String description;
-    private int jamBelajar;
+    private String jamBelajar;
     private int tanggalBelajar;
 
-    public Course(String title, String description, int jamBelajar, int tanggalBelajar) {
+    public Course(String title, String description, String jamBelajar, int tanggalBelajar) {
         this.title = title;
         this.description = description;
         this.jamBelajar = jamBelajar;
@@ -28,7 +28,7 @@ public class Course {
         return description;
     }
 
-    public int getjamBelajar(){
+    public String getjamBelajar(){
         return jamBelajar;
     }
 
