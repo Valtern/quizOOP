@@ -1,7 +1,7 @@
 public class Course {
 
     Materials mat;
-    PowerPoints pp;
+    Quiz pp;
     Videos vid;
 
     private String title;

@@ -1,6 +1,6 @@
 public class Binggris extends Course {
     Materials mat;
-    PowerPoints pp;
+    Quiz pp;
     Videos vid;
 
     public Binggris (String title, String description, String jamMengajar, int tanggalBelajar) {

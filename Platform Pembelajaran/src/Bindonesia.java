@@ -1,6 +1,6 @@
 public class Bindonesia extends Course {
     Materials mat;
-    PowerPoints pp;
+    Quiz pp;
     Videos vid;
 
     public Bindonesia(String title, String description, String jamMengajar, int tanggalBelajar) {

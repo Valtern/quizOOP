@@ -5,7 +5,7 @@ public class Main {
         PaymentSys paymentSys = new PaymentSys();
         Student std = null;
         Materials mat;
-        PowerPoints pp;
+        Quiz pp;
         Videos vid;
         Bindonesia bindo = null;
         Binggris bing = null;
@@ -119,7 +119,7 @@ public class Main {
                                         int swiC = sc.nextInt();
                                         switch (swiC) {
                                             case 1: 
-                                              System.out.println("What contents would you like to add ? \n1. Materials \n2. Power point \n3. Video");
+                                              System.out.println("What contents would you like to add ? \n1. Materials \n2. Quiz \n3. Video");
                                               swiCont = sc.nextInt();
                                                 switch (swiCont) {
                                                     case 1:
@@ -139,7 +139,7 @@ public class Main {
                                                         String content1 = sc.next();
                                                         System.out.println("Enter the page count: ");
                                                         int slideCount = sc.nextInt();
-                                                        pp = new PowerPoints(title1, content1, slideCount);
+                                                        pp = new Quiz(title1, content1, slideCount);
                                                         bindo.pp = pp;
                                                         break;
                                                     case 3:
@@ -155,7 +155,7 @@ public class Main {
                                                 }
                                             break;
                                             case 2:
-                                                System.out.println("What contents would you like to add ? \n1. Materials \n2. Power point \n3. Video");
+                                                System.out.println("What contents would you like to add ? \n1. Materials \n2. Quiz \n3. Video");
                                                 swiCont = sc.nextInt();
                                                 switch (swiCont) {
                                                     case 1:
@@ -169,7 +169,7 @@ public class Main {
                                                         String title1 = sc.next();
                                                         String content1 = sc.next();
                                                         int slideCount = sc.nextInt();
-                                                        pp = new PowerPoints(title1, content1, slideCount);
+                                                        pp = new Quiz(title1, content1, slideCount);
                                                         bindo.pp = pp;
                                                         break;
                                                     case 3:
@@ -194,7 +194,7 @@ public class Main {
                                                         String title1 = sc.next();
                                                         String content1 = sc.next();
                                                         int slideCount = sc.nextInt();
-                                                        pp = new PowerPoints(title1, content1, slideCount);
+                                                        pp = new Quiz(title1, content1, slideCount);
                                                         bindo.pp = pp;
                                                         break;
                                                     case 3:

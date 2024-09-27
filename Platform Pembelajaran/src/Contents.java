@@ -60,10 +60,10 @@ class Videos extends Contents {
 }
 
 // Class for PowerPoints
-class PowerPoints extends Contents {
+class Quiz extends Contents {
     private int slideCount;
 
-    public PowerPoints(String title, String description, int slideCount) {
+    public Quiz(String title, String description, int slideCount) {
         super(title, description);
         this.slideCount = slideCount;
     }

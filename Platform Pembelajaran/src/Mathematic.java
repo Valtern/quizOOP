@@ -1,6 +1,6 @@
 public class Mathematic extends Course {
     Materials mat;
-    PowerPoints pp;
+    Quiz pp;
     Videos vid;
 
     public Mathematic(String title, String description, String jamMengajar, int tanggalBelajar) {
