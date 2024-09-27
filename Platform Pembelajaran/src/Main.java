@@ -115,11 +115,11 @@ public class Main {
                                 swi2 = sc.nextInt();
                                 switch (swi2) {
                                     case 1:
-                                        System.out.println("Select on what course you would like add \n1.Bahasa Indonesia \n2.Bahasa Ingriss \n3.Matematika " );
+                                        System.out.println("Select on what course you would like add \n1. Bahasa Indonesia \n2. Bahasa Ingriss \n3. Matematika " );
                                         int swiC = sc.nextInt();
                                         switch (swiC) {
                                             case 1: 
-                                              System.out.println("What contents would you like to add ? \n1. Materials \n2.Power point \n3. Video");
+                                              System.out.println("What contents would you like to add ? \n1. Materials \n2. Power point \n3. Video");
                                               swiCont = sc.nextInt();
                                                 switch (swiCont) {
                                                     case 1:
@@ -155,7 +155,7 @@ public class Main {
                                                 }
                                             break;
                                             case 2:
-                                                System.out.println("What contents would you like to add ? \n1. Materials \n2.Power point \n3. Video");
+                                                System.out.println("What contents would you like to add ? \n1. Materials \n2. Power point \n3. Video");
                                                 swiCont = sc.nextInt();
                                                 switch (swiCont) {
                                                     case 1:
